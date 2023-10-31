@@ -33,17 +33,23 @@ app.post("/webhook", (req, res) => {
 })
 
 app.post("/notify", (req, res)=>{
-    reply('Hello')
+    let item_name = req.body.item_name
+    let img_firebase = req.body.img_firebase
+    reply(item_name, img_firebase)
 })
 
 
-const reply = (msg) => {
+const reply = (name, img) => {
     axios.post("https://api.line.me/v2/bot/message/push", {
         to: 'Cc516ca8f6a6d03a40eab43449d5cf8bf',
         messages: [
             {
                 type: 'text',
-                text: msg
+                text: name
+            },
+            {
+                type: 'image',
+                originalContentUrl: img
             }
         ]
     }, {
