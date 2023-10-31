@@ -17,7 +17,7 @@ let lineConfig = {
 
 
 app.get("/", (req, res) => {
-    console.log("Testing")
+    res.json("testing")
 })
 
 // GroupId : Cc516ca8f6a6d03a40eab43449d5cf8bf
