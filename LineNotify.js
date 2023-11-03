@@ -16,7 +16,7 @@ let lineConfig = {
 }
 
 
-app.get("/", (req, res) => {
+app.get("/test", (req, res) => {
     res.json("testing")
 })
 
