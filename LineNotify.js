@@ -38,19 +38,19 @@ app.post("/notify", async (req, res) => {
     let item_name = req.body.item_name
     let item_remain = req.body.item_remain
     let img_firebase = req.body.img_firebase
-    let res_reply = await reply(item_name, img_firebase)
+    let res_reply = await reply(item_name, item_remain, img_firebase)
     res.json(res_reply)
 })
 
 
-const reply = (name, img) => {
+const reply = (name, item_remain ,img) => {
     return new Promise((resolve, reject) => {
         axios.post("https://api.line.me/v2/bot/message/push", {
             to: 'Cc516ca8f6a6d03a40eab43449d5cf8bf',
             messages: [
                 {
                     type: 'text',
-                    text: 'สินค้า : '+item_name ? item_name : 'ว่าง'
+                    text: 'สินค้า : '+name ? name : 'ว่าง'
                 },
                 {
                     type: 'text',
@@ -60,7 +60,7 @@ const reply = (name, img) => {
                     type: 'image',
                     originalContentUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg',
                     previewImageUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg'
-                }
+                },
             ]
         }, {
             headers: {
