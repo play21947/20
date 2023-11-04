@@ -24,7 +24,7 @@ app.get("/test", (req, res) => {
 
 app.post("/webhook", (req, res) => {
     console.log(req.body.events)
-    if(req.body.events){
+    if(req.body.events.length > 0){
         let reply_token = req.body.events[0].source.groupId
         console.log(reply_token)
         if (req.body.events[0].type === "message") {
