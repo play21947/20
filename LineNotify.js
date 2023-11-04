@@ -36,6 +36,7 @@ app.post("/webhook", (req, res) => {
 
 app.post("/notify", async (req, res) => {
     let item_name = req.body.item_name
+    let item_remain = req.body.item_remain
     let img_firebase = req.body.img_firebase
     let res_reply = await reply(item_name, img_firebase)
     res.json(res_reply)
@@ -49,7 +50,11 @@ const reply = (name, img) => {
             messages: [
                 {
                     type: 'text',
-                    text: name ? 'ได้เพิ่มสินค้า : ' + name : 'ว่าง'
+                    text: 'สินค้า : '+item_name ? item_name : 'ว่าง'
+                },
+                {
+                    type: 'text',
+                    text: 'คงเหลือ : '+item_remain ? item_remain : 'ว่าง'
                 },
                 {
                     type: 'image',
