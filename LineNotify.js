@@ -50,11 +50,11 @@ const reply = (name, item_remain ,img) => {
             messages: [
                 {
                     type: 'text',
-                    text: 'สินค้า : '+name ? name : 'ว่าง'
+                    text: name ? 'สินค้า : '+name : 'สินค้า : -'
                 },
                 {
                     type: 'text',
-                    text: 'คงเหลือ : '+item_remain ? item_remain : 'ว่าง'
+                    text: item_remain ? 'คงเหลือ : '+item_remain : 'คงเหลือ : -'
                 },
                 {
                     type: 'image',
