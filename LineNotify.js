@@ -24,10 +24,12 @@ app.get("/test", (req, res) => {
 
 app.post("/webhook", (req, res) => {
     console.log(req.body.events)
-    let reply_token = req.body.events[0].source.groupId
-    console.log(reply_token)
-    if (req.body.events[0].type === "message") {
-        reply(reply_token, 'hi')
+    if(req.body.events){
+        let reply_token = req.body.events[0].source.groupId
+        console.log(reply_token)
+        if (req.body.events[0].type === "message") {
+            reply(reply_token, 'hi')
+        }
     }
     res.sendStatus(200)
 })
