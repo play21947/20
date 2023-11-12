@@ -67,6 +67,7 @@ const reply = (name, item_remain, img, type_notify) => {
                 'Authorization': "Bearer " + env.ACCESS_TOKEN
             }
         }).then((res) => {
+            console.log(res)
             if (res.data) {
                 resolve({ success: true })
             }
