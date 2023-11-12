@@ -37,6 +37,15 @@ app.post("/webhook", (req, res) => {
 app.post("/notify", async (req, res) => {
     let item_name = req.body.item_name
     let item_remain = req.body.item_remain
+    let img_firebase = req.body.img_firebase
+    let res_reply = await reply(item_name, item_remain, img_firebase)
+    res.json(res_reply)
+})
+
+
+app.post("/notify-edit", async (req, res)=>{
+    let item_name = req.body.item_name
+    let item_remain = req.body.item_remain
     // let img_firebase = req.body.img_firebase
     let res_reply = await reply(item_name, item_remain)
     res.json(res_reply)
@@ -56,11 +65,11 @@ const reply = (name, item_remain ,img) => {
                     type: 'text',
                     text: item_remain ? 'คงเหลือ : '+item_remain : 'คงเหลือ : -'
                 },
-                // {
-                //     type: 'image',
-                //     originalContentUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg',
-                //     previewImageUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg'
-                // },
+                {
+                    type: 'image',
+                    originalContentUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg',
+                    previewImageUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg'
+                },
             ]
         }, {
             headers: {
