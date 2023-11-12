@@ -54,12 +54,8 @@ const reply = (name, item_remain, img, type_notify) => {
             messages: [
                 {
                     type: 'text',
-                    text: name ? item_remain ? `สินค้า : ${name} \n คงเหลือ : ${item_remain}` : `สินค้า : ${name} \n คงเหลือ : -` : `สินค้า : - \n คงเหลือ : -`
+                    text: name
                 },
-                // {
-                //     type: 'text',
-                //     text: item_remain ? 'คงเหลือ : ' + item_remain : 'คงเหลือ : -'
-                // },
                 {
                     type: 'image',
                     originalContentUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg',
