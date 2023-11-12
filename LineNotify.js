@@ -85,6 +85,10 @@ const reply = (name, item_remain, img, type_notify) => {
                 if (res.data) {
                     resolve({ success: true })
                 }
+            }).catch((err)=>{
+                if(err){
+                    reject({success: false})
+                }
             })
         } else if (type_notify == 2) {
             axios.post("https://api.line.me/v2/bot/message/push", {
