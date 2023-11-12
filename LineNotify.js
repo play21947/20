@@ -20,7 +20,8 @@ app.get("/test", (req, res) => {
     res.json("testing")
 })
 
-// GroupId : Cc516ca8f6a6d03a40eab43449d5cf8bf
+// GroupId : Cc516ca8f6a6d03a40eab43449d5cf8bf : 1
+// GroupBotAll : Cf4f16ae98a47244d9a24838e05f219e1
 
 app.post("/webhook", (req, res) => {
     console.log(req.body.events)
@@ -61,7 +62,7 @@ const reply = (name, item_remain, img, type_notify) => {
     return new Promise((resolve, reject) => {
         if (type_notify == 1) {
             axios.post("https://api.line.me/v2/bot/message/push", {
-                to: 'Cc516ca8f6a6d03a40eab43449d5cf8bf',
+                to: 'Cf4f16ae98a47244d9a24838e05f219e1',
                 messages: [
                     {
                         type: 'text',
@@ -88,7 +89,7 @@ const reply = (name, item_remain, img, type_notify) => {
             })
         } else if (type_notify == 2) {
             axios.post("https://api.line.me/v2/bot/message/push", {
-                to: 'Cc516ca8f6a6d03a40eab43449d5cf8bf',
+                to: 'Cf4f16ae98a47244d9a24838e05f219e1',
                 messages: [
                     {
                         type: 'text',
