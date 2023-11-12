@@ -65,12 +65,9 @@ const reply = (name, item_remain, img, type_notify) => {
                 messages: [
                     {
                         type: 'text',
-                        text: name ? item_remain ? `---------------- \n สินค้า : ${name} \n คงเหลือ : ${item_remain} \n ----------------` : `---------------- \n สินค้า : ${name} \n คงเหลือ : - \n ----------------` : `---------------- \n สินค้า : - \n คงเหลือ : - \n ----------------`
+                        text: name
+                        // text: name ? item_remain ? `---------------- \n สินค้า : ${name} \n คงเหลือ : ${item_remain} \n ----------------` : `---------------- \n สินค้า : ${name} \n คงเหลือ : - \n ----------------` : `---------------- \n สินค้า : - \n คงเหลือ : - \n ----------------`
                     },
-                    // {
-                    //     type: 'text',
-                    //     text: item_remain ? 'คงเหลือ : ' + item_remain : 'คงเหลือ : -'
-                    // },
                     {
                         type: 'image',
                         originalContentUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg',
@@ -92,7 +89,8 @@ const reply = (name, item_remain, img, type_notify) => {
                 messages: [
                     {
                         type: 'text',
-                        text: name ? item_remain ? `---------------- \n สินค้า : ${name} \n คงเหลือ : ${item_remain} \n ----------------` : `---------------- \n สินค้า : ${name} \n คงเหลือ : - \n ----------------` : `---------------- \n สินค้า : - \n คงเหลือ : - \n ----------------`
+                        text: name
+                        // text: name ? item_remain ? `---------------- \n สินค้า : ${name} \n คงเหลือ : ${item_remain} \n ----------------` : `---------------- \n สินค้า : ${name} \n คงเหลือ : - \n ----------------` : `---------------- \n สินค้า : - \n คงเหลือ : - \n ----------------`
                     },
                     // {
                     //     type: 'text',
