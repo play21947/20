@@ -59,63 +59,63 @@ app.post("/notify-edit", async (req, res) => {
 
 const reply = (name, item_remain, img, type_notify) => {
     return new Promise((resolve, reject) => {
-        if (type_notify == 1) {
-            axios.post("https://api.line.me/v2/bot/message/push", {
-                to: 'Cc516ca8f6a6d03a40eab43449d5cf8bf',
-                messages: [
-                    {
-                        type: 'text',
-                        text: name  ? item_remain ? `สินค้า : ${name} \n คงเหลือ : ${item_remain}` : `สินค้า : ${name} \n คงเหลือ : -` : `สินค้า : - \n คงเหลือ : -`
-                    },
-                    // {
-                    //     type: 'text',
-                    //     text: item_remain ? 'คงเหลือ : ' + item_remain : 'คงเหลือ : -'
-                    // },
-                    {
-                        type: 'image',
-                        originalContentUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg',
-                        previewImageUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg'
-                    },
-                ]
-            }, {
-                headers: {
-                    'Authorization': "Bearer " + env.ACCESS_TOKEN
-                }
-            }).then((res) => {
-                if (res.data) {
-                    resolve({ success: true })
-                }
-            }).catch((err)=>{
-                if(err){
-                    reject({success: false})
-                }
-            })
-        } else if (type_notify == 2) {
-            axios.post("https://api.line.me/v2/bot/message/push", {
-                to: 'Cc516ca8f6a6d03a40eab43449d5cf8bf',
-                messages: [
-                    {
-                        type: 'text',
-                        text: name  ? item_remain ? `สินค้า : ${name} \n คงเหลือ : ${item_remain}` : `สินค้า : ${name} \n คงเหลือ : -` : `สินค้า : - \n คงเหลือ : -`
-                    },
-                    // {
-                    //     type: 'text',
-                    //     text: name ? 'สินค้า : ' + name : 'สินค้า : -'
-                    // },
-                    // {
-                    //     type: 'text',
-                    //     text: item_remain ? 'คงเหลือ : ' + item_remain : 'คงเหลือ : -'
-                    // },
-                ]
-            }, {
-                headers: {
-                    'Authorization': "Bearer " + env.ACCESS_TOKEN
-                }
-            }).then((res) => {
-                if (res.data) {
-                    resolve({ success: true })
-                }
-            })
+        try {
+            if (type_notify == 1) {
+                axios.post("https://api.line.me/v2/bot/message/push", {
+                    to: 'Cc516ca8f6a6d03a40eab43449d5cf8bf',
+                    messages: [
+                        {
+                            type: 'text',
+                            text: name ? item_remain ? `สินค้า : ${name} \n คงเหลือ : ${item_remain}` : `สินค้า : ${name} \n คงเหลือ : -` : `สินค้า : - \n คงเหลือ : -`
+                        },
+                        // {
+                        //     type: 'text',
+                        //     text: item_remain ? 'คงเหลือ : ' + item_remain : 'คงเหลือ : -'
+                        // },
+                        {
+                            type: 'image',
+                            originalContentUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg',
+                            previewImageUrl: img ? img : 'https://oc1t.com/upload/source/y9DpT.jpg'
+                        },
+                    ]
+                }, {
+                    headers: {
+                        'Authorization': "Bearer " + env.ACCESS_TOKEN
+                    }
+                }).then((res) => {
+                    if (res.data) {
+                        resolve({ success: true })
+                    }
+                })
+            } else if (type_notify == 2) {
+                axios.post("https://api.line.me/v2/bot/message/push", {
+                    to: 'Cc516ca8f6a6d03a40eab43449d5cf8bf',
+                    messages: [
+                        {
+                            type: 'text',
+                            text: name ? item_remain ? `สินค้า : ${name} \n คงเหลือ : ${item_remain}` : `สินค้า : ${name} \n คงเหลือ : -` : `สินค้า : - \n คงเหลือ : -`
+                        },
+                        // {
+                        //     type: 'text',
+                        //     text: name ? 'สินค้า : ' + name : 'สินค้า : -'
+                        // },
+                        // {
+                        //     type: 'text',
+                        //     text: item_remain ? 'คงเหลือ : ' + item_remain : 'คงเหลือ : -'
+                        // },
+                    ]
+                }, {
+                    headers: {
+                        'Authorization': "Bearer " + env.ACCESS_TOKEN
+                    }
+                }).then((res) => {
+                    if (res.data) {
+                        resolve({ success: true })
+                    }
+                })
+            }
+        } catch (err) {
+            reject({success: false})
         }
     })
 }
